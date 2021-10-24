@@ -7,9 +7,9 @@ import os, sys, subprocess
 from pythonpancakes import PancakeSwapAPI
 import datetime
 
-ps = PancakeSwapAPI()
+
 ### this part is for binance api
-'''
+
 with open("api.txt") as f:
     lines = f.readlines()
     api_key = lines[0].strip()
@@ -44,7 +44,7 @@ def getTradePrice():
 	return btc['close']
 
 '''
-'''
+
 def getTradePrice():
 
 
@@ -53,13 +53,15 @@ def getTradePrice():
 	res = response.json()
 	data = float(res['data']['price']) * 1000000000000000000
 	return data
-'''
+
+
 
 def getTradePrice():
 
 	tokens = ps.tokens('0x8420ce3a82fd1518ed898ff83b9b0b6ad470ad02')
 	data = float(tokens['data']['price']) * 1000000000000000000
 	return data
+'''
 
 def open_file(filename):
     if sys.platform == "win32":
@@ -94,7 +96,7 @@ class	AsyncTask:
 			time.sleep(55)
 			open_file('1.m4a')
 			exit()
-		threading.Timer(30,self.TaskA).start()
+		threading.Timer(3,self.TaskA).start()
 
 global targetprice
 targetprice = float(input("알람가격을 설정하세요: "))

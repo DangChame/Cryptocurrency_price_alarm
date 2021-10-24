@@ -60,6 +60,31 @@ def getTradePrice():
 	tokens = ps.tokens('0x8420ce3a82fd1518ed898ff83b9b0b6ad470ad02')
 	data = float(tokens['data']['price']) * 1000000000000000000
 	return data
+import os
+import jwt
+import uuid
+import hashlib
+from urllib.parse import urlencode
+
+import requests
+
+access_key = 'your key'
+secret_key = 'your key'
+server_url = 'https://api.upbit.com'
+
+payload = {
+    'access_key': access_key,
+    'nonce': str(uuid.uuid4()),
+}
+
+jwt_token = jwt.encode(payload, secret_key)
+authorize_token = 'Bearer {}'.format(jwt_token)
+headers = {"Authorization": authorize_token}
+
+res = requests.get(server_url + "/v1/accounts", headers=headers)
+
+print(res.json())
+
 
 def open_file(filename):
     if sys.platform == "win32":

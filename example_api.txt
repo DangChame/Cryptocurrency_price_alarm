@@ -1,0 +1,13 @@
+import ccxt
+
+api_key = "your apiKey"
+secret  = "your secret"
+
+binance = ccxt.binance(config={
+    'apiKey': api_key,
+    'secret': secret,
+    'enableRateLimit': True,
+    'options': {
+        'defaultType': 'future'
+    }
+})

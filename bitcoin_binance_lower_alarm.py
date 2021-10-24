@@ -43,25 +43,6 @@ def getTradePrice():
 	btc = binance.fetch_ticker("BTC/USDT")
 	return btc['close']
 
-'''
-
-def getTradePrice():
-
-
-	url = "https://api.pancakeswap.info/api/v2/tokens/0x8420ce3a82fd1518ed898ff83b9b0b6ad470ad02"
-	response = requests.request("GET", url)
-	res = response.json()
-	data = float(res['data']['price']) * 1000000000000000000
-	return data
-
-
-
-def getTradePrice():
-
-	tokens = ps.tokens('0x8420ce3a82fd1518ed898ff83b9b0b6ad470ad02')
-	data = float(tokens['data']['price']) * 1000000000000000000
-	return data
-'''
 
 def open_file(filename):
     if sys.platform == "win32":

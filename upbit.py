@@ -7,53 +7,7 @@ import os, sys, subprocess
 from pythonpancakes import PancakeSwapAPI
 import datetime
 
-ps = PancakeSwapAPI()
-### this part is for binance api
-'''
-with open("api.txt") as f:
-    lines = f.readlines()
-    api_key = lines[0].strip()
-    secret  = lines[1].strip()
 
-binance = ccxt.binance(config={
-    'apiKey': api_key,
-    'secret': secret,
-    'enableRateLimit': True,
-    'options': {
-        'defaultType': 'future'
-    }
-})
-
-def getTradePrice():
-
-	with open("api.txt") as f:
-		lines = f.readlines()
-		api_key = lines[0].strip()
-		secret  = lines[1].strip()
-
-	binance = ccxt.binance(config={
-		'apiKey': api_key,
-		'secret': secret,
-		'enableRateLimit': True,
-		'options': {
-			'defaultType': 'future'
-		}
-	})
-
-	btc = binance.fetch_ticker("BTC/USDT")
-	return btc['close']
-
-'''
-'''
-def getTradePrice():
-
-
-	url = "https://api.pancakeswap.info/api/v2/tokens/0x8420ce3a82fd1518ed898ff83b9b0b6ad470ad02"
-	response = requests.request("GET", url)
-	res = response.json()
-	data = float(res['data']['price']) * 1000000000000000000
-	return data
-'''
 
 def getTradePrice():
 
